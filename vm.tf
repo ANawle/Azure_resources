@@ -32,7 +32,6 @@ variable "tenant_id" {
   description = "Azure Tenant ID"
   type        = string
 }
-}
 
 # 🔹 Create a Resource Group
 resource "azurerm_resource_group" "vm_rg" {
