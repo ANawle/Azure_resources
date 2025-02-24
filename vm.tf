@@ -52,4 +52,14 @@ resource "azurerm_public_ip" "vm_ip" {
 # 🔹 Create a Network Interface
 resource "azurerm_network_interface" "vm_nic" {
   name                = "spacelift-vm-nic"
-  location        
+  location            = azurerm_resource_group.vm_rg.location  # Corrected location assignment
+  resource_group_name = azurerm_resource_group.vm_rg.name
+
+  ip_configuration {
+    name                          = "vm-nic-config"
+    subnet_id                     = azurerm_subnet.vm_subnet.id
+    private_ip_address_allocation = "Dynamic"
+    public_ip_address_id          = azurerm_public_ip.vm_ip.id
+  }
+}
+ 
