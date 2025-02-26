@@ -12,6 +12,7 @@ terraform {
 
 provider "azurerm" {
   features {}
+}
 
 variable "subscription_id" {
   description = "Azure Subscription ID"
@@ -76,4 +77,3 @@ resource "azurerm_network_interface" "vm_nic" {
     public_ip_address_id          = azurerm_public_ip.vm_ip.id
   }
 }
- 
